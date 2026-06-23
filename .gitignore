@@ -1,0 +1,17 @@
+# React/Vite
+frontend/node_modules/
+frontend/dist/
+
+# Express
+backend/node_modules/
+
+# Python
+nlp-service/venv/
+nlp-service/__pycache__/
+*.pyc
+
+# Environment files
+.env
+frontend/.env
+backend/.env
+nlp-service/.env
