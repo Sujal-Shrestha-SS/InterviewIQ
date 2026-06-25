@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
+const { errorHandler } = require('./middleware/error.middleware');
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
@@ -13,5 +14,8 @@ app.use(morgan('dev'));
 app.get('/health', (req, res) => {
   res.json({ status: 'OK' });
 });
+
+
+app.use(errorHandler);
 
 module.exports = app;
