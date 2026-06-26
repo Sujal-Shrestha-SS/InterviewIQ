@@ -72,3 +72,24 @@ const login = asyncHandler(async (req, res) => {
     })
 
 })
+
+// GET /api/auth/me  (protected)
+const getMe = asyncHandler(async (req, res) => {
+  // req.user was set by the protect middleware
+  res.json({
+    success: true,
+    data: { user: req.user }
+  });
+});
+
+// POST /api/auth/logout
+const logout = asyncHandler(async (req, res) => {
+  // JWT is stateless — logout just confirms on the server side
+  // The real logout happens on the frontend by deleting the token
+  res.json({
+    success: true,
+    message: 'Logged out successfully'
+  });
+});
+
+module.exports = { register, login, getMe, logout };
